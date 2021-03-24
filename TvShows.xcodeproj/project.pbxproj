@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,15 @@
 		39A2516B25FB9282002F6F44 /* SimilarTvShowsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A2516925FB9282002F6F44 /* SimilarTvShowsCollectionViewCell.xib */; };
 		39A37C0425FE74A80054B226 /* ExtensionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A37C0325FE74A70054B226 /* ExtensionsHelper.swift */; };
 		39A37C0725FEC5FA0054B226 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A37C0625FEC5FA0054B226 /* MainSplitViewController.swift */; };
+		39F58B422609EFCB0099789C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B412609EFCB0099789C /* LoginViewController.swift */; };
+		39F58B452609EFD60099789C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B442609EFD60099789C /* RegisterViewController.swift */; };
+		39F58B482609EFE10099789C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B472609EFE10099789C /* ProfileViewController.swift */; };
+		39F58B6F2609F2550099789C /* DbManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B6E2609F2550099789C /* DbManager.swift */; };
+		39F58B722609F3DD0099789C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B712609F3DD0099789C /* StorageManager.swift */; };
+		39F58B752609F3F00099789C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B742609F3F00099789C /* User.swift */; };
+		39F58B782609F7780099789C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39F58B772609F7780099789C /* GoogleService-Info.plist */; };
+		39F58B7C260A07980099789C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F58B7B260A07980099789C /* TabBarViewController.swift */; };
+		E5E471EAE8AC89B441D02139 /* Pods_TvShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D78C21F2EFD409840A457B /* Pods_TvShows.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +51,17 @@
 		39A2516925FB9282002F6F44 /* SimilarTvShowsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarTvShowsCollectionViewCell.xib; sourceTree = "<group>"; };
 		39A37C0325FE74A70054B226 /* ExtensionsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsHelper.swift; sourceTree = "<group>"; };
 		39A37C0625FEC5FA0054B226 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		39F58B412609EFCB0099789C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		39F58B442609EFD60099789C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		39F58B472609EFE10099789C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		39F58B6E2609F2550099789C /* DbManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbManager.swift; sourceTree = "<group>"; };
+		39F58B712609F3DD0099789C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		39F58B742609F3F00099789C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39F58B772609F7780099789C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		39F58B7B260A07980099789C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		59CC53EEB1E4A12B23117B80 /* Pods-TvShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.debug.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.debug.xcconfig"; sourceTree = "<group>"; };
+		A2585F9244AC899F7474F90B /* Pods-TvShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.release.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.release.xcconfig"; sourceTree = "<group>"; };
+		D3D78C21F2EFD409840A457B /* Pods_TvShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TvShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E471EAE8AC89B441D02139 /* Pods_TvShows.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				39A2515925FA0D05002F6F44 /* NetworkManager.swift */,
+				39F58B712609F3DD0099789C /* StorageManager.swift */,
 				39A37C0325FE74A70054B226 /* ExtensionsHelper.swift */,
+				39F58B6E2609F2550099789C /* DbManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -69,6 +92,8 @@
 			children = (
 				399ECC3125F9273C0008B000 /* TvShows */,
 				399ECC3025F9273C0008B000 /* Products */,
+				AB8A0782BC64A5544FE452EE /* Pods */,
+				820194C23659BFD6D148534A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +108,7 @@
 		399ECC3125F9273C0008B000 /* TvShows */ = {
 			isa = PBXGroup;
 			children = (
+				39F58B772609F7780099789C /* GoogleService-Info.plist */,
 				399ECC3225F9273C0008B000 /* AppDelegate.swift */,
 				399ECC3425F9273C0008B000 /* SceneDelegate.swift */,
 				3992142F26022BD10011C4FB /* Helpers */,
@@ -101,6 +127,10 @@
 				399ECC3625F9273C0008B000 /* TvShowsViewController.swift */,
 				39A2515D25FADB12002F6F44 /* TvShowDetailsViewController.swift */,
 				39A37C0625FEC5FA0054B226 /* MainSplitViewController.swift */,
+				39F58B412609EFCB0099789C /* LoginViewController.swift */,
+				39F58B442609EFD60099789C /* RegisterViewController.swift */,
+				39F58B472609EFE10099789C /* ProfileViewController.swift */,
+				39F58B7B260A07980099789C /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,10 +150,28 @@
 		39A2516325FADB51002F6F44 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				39F58B742609F3F00099789C /* User.swift */,
 				39A2515625FA0AF5002F6F44 /* TvShowGeneralInfo.swift */,
 				399214292600D6070011C4FB /* Genres.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		820194C23659BFD6D148534A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3D78C21F2EFD409840A457B /* Pods_TvShows.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB8A0782BC64A5544FE452EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59CC53EEB1E4A12B23117B80 /* Pods-TvShows.debug.xcconfig */,
+				A2585F9244AC899F7474F90B /* Pods-TvShows.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 399ECC4325F927400008B000 /* Build configuration list for PBXNativeTarget "TvShows" */;
 			buildPhases = (
+				AB35EB5B204EE298031E678A /* [CP] Check Pods Manifest.lock */,
 				399ECC2B25F9273C0008B000 /* Sources */,
 				399ECC2C25F9273C0008B000 /* Frameworks */,
 				399ECC2D25F9273C0008B000 /* Resources */,
+				45FE0DDDC381046FAB803732 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +235,7 @@
 			files = (
 				399ECC3F25F927400008B000 /* LaunchScreen.storyboard in Resources */,
 				399ECC3C25F927400008B000 /* Assets.xcassets in Resources */,
+				39F58B782609F7780099789C /* GoogleService-Info.plist in Resources */,
 				399ECC3A25F9273C0008B000 /* Main.storyboard in Resources */,
 				39A2516B25FB9282002F6F44 /* SimilarTvShowsCollectionViewCell.xib in Resources */,
 			);
@@ -192,11 +243,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45FE0DDDC381046FAB803732 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TvShows/Pods-TvShows-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TvShows/Pods-TvShows-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TvShows/Pods-TvShows-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB35EB5B204EE298031E678A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TvShows-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		399ECC2B25F9273C0008B000 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39F58B722609F3DD0099789C /* StorageManager.swift in Sources */,
 				39A37C0725FEC5FA0054B226 /* MainSplitViewController.swift in Sources */,
 				39A2515A25FA0D05002F6F44 /* NetworkManager.swift in Sources */,
 				39A2515E25FADB12002F6F44 /* TvShowDetailsViewController.swift in Sources */,
@@ -205,8 +299,14 @@
 				399ECC3325F9273C0008B000 /* AppDelegate.swift in Sources */,
 				39A37C0425FE74A80054B226 /* ExtensionsHelper.swift in Sources */,
 				399ECC4825F928D80008B000 /* TvShowsTableViewCell.swift in Sources */,
+				39F58B452609EFD60099789C /* RegisterViewController.swift in Sources */,
 				399ECC3525F9273C0008B000 /* SceneDelegate.swift in Sources */,
+				39F58B6F2609F2550099789C /* DbManager.swift in Sources */,
+				39F58B7C260A07980099789C /* TabBarViewController.swift in Sources */,
 				39A2515725FA0AF5002F6F44 /* TvShowGeneralInfo.swift in Sources */,
+				39F58B752609F3F00099789C /* User.swift in Sources */,
+				39F58B482609EFE10099789C /* ProfileViewController.swift in Sources */,
+				39F58B422609EFCB0099789C /* LoginViewController.swift in Sources */,
 				39A2516A25FB9282002F6F44 /* SimilarTvShowsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +451,7 @@
 		};
 		399ECC4425F927400008B000 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59CC53EEB1E4A12B23117B80 /* Pods-TvShows.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,6 +472,7 @@
 		};
 		399ECC4525F927400008B000 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2585F9244AC899F7474F90B /* Pods-TvShows.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

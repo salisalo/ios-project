@@ -13,7 +13,9 @@ class MainSplitViewController: UISplitViewController {
         super.viewWillAppear(animated)
         self.delegate = self
         self.preferredDisplayMode = .allVisible
+        
     }
+    
     
 }
 

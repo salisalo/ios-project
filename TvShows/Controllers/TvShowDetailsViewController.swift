@@ -19,14 +19,49 @@ class TvShowDetailsViewController: UIViewController {
     @IBOutlet weak var similarTvShowsCollectionView: UICollectionView!
     @IBOutlet weak var similarTVShowsStackView: UIStackView!
     
+    @IBOutlet weak var addToFavoritesButton: UIButton!
+    @IBOutlet weak var favoritesStackView: UIStackView!
     var tvShow: TvShowInfo? = nil
     var similarTvShows = [TvShowInfo]()
+    var isShowInFavorites = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         fillData(tvShow: tvShow)
-        
+    }
+    
+    @IBAction func addClicked(_ sender: Any) {
+        if let tvShow = tvShow {
+            if isShowInFavorites {
+                DbManager.shared.deleteFromFavorites(tvShow.id) { (result) in
+                    self.isShowInFavorites = false
+                    self.addToFavoritesButton.setTitle("Add To Favorites", for: .normal)
+                }
+            }
+            else {
+                DbManager.shared.addToPlaylist(tvShow) { (result) in
+                    self.isShowInFavorites = true
+                    self.addToFavoritesButton.setTitle("Remove From Favorites", for: .normal)
+                }
+            }
+        }
+    }
+    
+    func isTvShowInFavorites(tvShow: TvShowInfo?) {
+        if let id = tvShow?.id {
+        DbManager.shared.isTvShowInFavorites(id) { (result, error) in
+            if let isInFavorites = result {
+                self.isShowInFavorites = isInFavorites
+                
+                DispatchQueue.main.async {
+                    self.favoritesStackView.isHidden = false
+                    let title = isInFavorites ? "Remove From Favorites" : "Add To Favorites"
+                    self.addToFavoritesButton.setTitle(title, for: .normal)
+                }
+            }
+        }
+        }
     }
     
     func configure() {
@@ -42,6 +77,21 @@ class TvShowDetailsViewController: UIViewController {
         similarTvShowsCollectionView.showsHorizontalScrollIndicator = false
         
         navigationController?.isNavigationBarHidden = false
+        
+        favoritesStackView.isHidden = true
+        
+        if (UserDefaults.standard.value(forKey: "email") as? String) != nil  {
+            isTvShowInFavorites(tvShow: tvShow)
+            //favoritesStackView.isHidden = false
+        }
+//        else {
+//            favoritesStackView.isHidden = true
+//        }
+        
+//        if let id = tvShow?.id {
+//            isTvShowInFavorites(id: id)
+//        }
+        
     }
     
     func fillData(tvShow: TvShowInfo?) {

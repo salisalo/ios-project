@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TvShowInfoResponse: Decodable {
+struct TvShowInfoResponse: Codable {
     var results: [TvShowInfo]
 }
 
-struct TvShowInfo: Decodable {
+struct TvShowInfo: Codable {
     var id: Int
     var first_air_date: String?
     var name: String
@@ -20,6 +20,5 @@ struct TvShowInfo: Decodable {
     var vote_average: Float
     var vote_count: Int
     var genre_ids: [Int]
-    var overview: String
-    
+    var overview: String    
 }
