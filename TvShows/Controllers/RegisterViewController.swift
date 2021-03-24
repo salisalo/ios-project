@@ -62,10 +62,19 @@ class RegisterViewController: UIViewController {
               !password.isEmpty,
               !repeatPassword.isEmpty,
               !firstName.isEmpty,
-              !lastName.isEmpty,
-              password.count >= 6 else {
+              !lastName.isEmpty
+              else {
             showErrorAlert(message: "Please fill all fields")
-            
+            return
+        }
+        
+        guard password == repeatPassword else {
+            showErrorAlert(message: "Passwords don't match")
+            return
+        }
+        
+        guard password.count >= 6 else {
+            showErrorAlert(message: "Password must be at least 6 symbols")
             return
         }
         
@@ -110,6 +119,19 @@ class RegisterViewController: UIViewController {
                             (url, error ) in
                             if let url = url {
                                 UserDefaults.standard.set(url, forKey: "profile_picture_url")
+                                
+                                guard let vc = self.storyboard?.instantiateViewController(identifier: "ProfileNavigationViewController")
+                                else { return }
+                                
+                                guard let rootViewController = self.navigationController?.viewControllers.first
+                                else { return }
+                                
+                                guard let firstTabVc = rootViewController.tabBarController?.viewControllers?[0]
+                                else { return }
+                                
+                                self.tabBarController?.setViewControllers([firstTabVc, vc], animated: false)
+                                vc.tabBarItem.image = UIImage(systemName: "person.circle")
+                                vc.tabBarItem.title = "Profile"
                             }
                         }
 //                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
@@ -128,18 +150,7 @@ class RegisterViewController: UIViewController {
                 //                            vc.modalPresentationStyle = .fullScreen
                 //                            self.present(vc, animated: true, completion: nil)
                 //                        }
-                guard let vc = self.storyboard?.instantiateViewController(identifier: "ProfileNavigationViewController")
-                else { return }
-                
-                guard let rootViewController = self.navigationController?.viewControllers.first
-                else { return }
-                
-                guard let firstTabVc = rootViewController.tabBarController?.viewControllers?[0]
-                else { return }
-                
-                self.tabBarController?.setViewControllers([firstTabVc, vc], animated: false)
-                vc.tabBarItem.image = UIImage(systemName: "person.circle")
-                vc.tabBarItem.title = "Profile"
+               
                 
             }
             

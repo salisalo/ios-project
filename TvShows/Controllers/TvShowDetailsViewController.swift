@@ -21,6 +21,7 @@ class TvShowDetailsViewController: UIViewController {
     
     @IBOutlet weak var addToFavoritesButton: UIButton!
     @IBOutlet weak var favoritesStackView: UIStackView!
+    @IBOutlet weak var favoritesImageView: UIImageView!
     var tvShow: TvShowInfo? = nil
     var similarTvShows = [TvShowInfo]()
     var isShowInFavorites = false
@@ -36,16 +37,23 @@ class TvShowDetailsViewController: UIViewController {
             if isShowInFavorites {
                 DbManager.shared.deleteFromFavorites(tvShow.id) { (result) in
                     self.isShowInFavorites = false
+                    self.favoritesImageView.image = UIImage(systemName: "heart")
                     self.addToFavoritesButton.setTitle("Add To Favorites", for: .normal)
                 }
             }
             else {
                 DbManager.shared.addToPlaylist(tvShow) { (result) in
                     self.isShowInFavorites = true
+                    self.favoritesImageView.image = UIImage(systemName: "heart.fill")
                     self.addToFavoritesButton.setTitle("Remove From Favorites", for: .normal)
                 }
             }
         }
+    }
+    
+    
+    func addOrDeleteFromFavorites(tvShow: TvShowInfo) {
+        
     }
     
     func isTvShowInFavorites(tvShow: TvShowInfo?) {
@@ -57,7 +65,9 @@ class TvShowDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.favoritesStackView.isHidden = false
                     let title = isInFavorites ? "Remove From Favorites" : "Add To Favorites"
+                    let image = isInFavorites ? "heart.fill" : "heart"
                     self.addToFavoritesButton.setTitle(title, for: .normal)
+                    self.favoritesImageView.image = UIImage(systemName: image)
                 }
             }
         }
@@ -82,15 +92,7 @@ class TvShowDetailsViewController: UIViewController {
         
         if (UserDefaults.standard.value(forKey: "email") as? String) != nil  {
             isTvShowInFavorites(tvShow: tvShow)
-            //favoritesStackView.isHidden = false
         }
-//        else {
-//            favoritesStackView.isHidden = true
-//        }
-        
-//        if let id = tvShow?.id {
-//            isTvShowInFavorites(id: id)
-//        }
         
     }
     
@@ -186,7 +188,13 @@ extension TvShowDetailsViewController : UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let tvShow = similarTvShows[indexPath.row]
-        
+        self.tvShow = tvShow
         fillData(tvShow: tvShow)
+        favoritesStackView.isHidden = true
+        addToFavoritesButton.setTitle("", for: .normal)
+        
+        if (UserDefaults.standard.value(forKey: "email") as? String) != nil  {
+            isTvShowInFavorites(tvShow: tvShow)
+        }
     }
 }

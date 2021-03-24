@@ -36,8 +36,8 @@ class LoginViewController: UIViewController {
         registerButton.layer.cornerRadius = 10
         registerButton.clipsToBounds = true
         
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+//        emailTextField.delegate = self
+//        passwordTextField.delegate = self
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         loginView.isUserInteractionEnabled = true
@@ -82,8 +82,8 @@ class LoginViewController: UIViewController {
     }
     
     func login() {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+//        emailTextField.resignFirstResponder()
+//        passwordTextField.resignFirstResponder()
         
         spinner.show(in: view)
         
@@ -127,16 +127,16 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController : UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
-            passwordTextField.becomeFirstResponder()
-        }
-        else if textField == passwordTextField {
-            login()
-        }
-        
-        return true
-    }
-    
-}
+//extension LoginViewController : UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == emailTextField {
+//            passwordTextField.becomeFirstResponder()
+//        }
+//        else if textField == passwordTextField {
+//            login()
+//        }
+//
+//        return true
+//    }
+//
+//}

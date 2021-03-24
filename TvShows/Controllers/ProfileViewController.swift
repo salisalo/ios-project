@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
                                                     //                                                    }
                                                     //                                                    vc.modalPresentationStyle = .fullScreen
                                                     //                                                    self.present(vc, animated: true, completion: nil)
-                                                    guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController")
+                                                    guard let vc = self.storyboard?.instantiateViewController(identifier: "NavigationViewController")
                                                     else { return }
                                                     
                                                     guard let firstTabVc = self.tabBarController?.viewControllers?[0]
@@ -91,7 +91,8 @@ class ProfileViewController: UIViewController {
     
     func getFavoriteTvShows() {
         spinner.show(in: view)
-        noFavoritesLabel.isHidden = true
+        noFavoritesLabel.isHidden = false
+        tvShowsTableView.isHidden = true
         tvShowsList = []
         
         DbManager.shared.getAllFavorites { (result, error) in
@@ -170,14 +171,26 @@ extension ProfileViewController : UITableViewDataSource, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Remove", handler: { (action, view, completionHandler) in
+        
+        let action = UIContextualAction(style: .destructive, title: "Remove", handler: { (action, view, completionHandler) in
             
             DbManager.shared.deleteFromFavorites(self.tvShowsList[indexPath.row].id) { (result) in
             }
+            
+            self.tvShowsList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+            
             completionHandler(true)
-        })])
+        })
         
+        action.image = UIImage(systemName: "trash")
         
+        return UISwipeActionsConfiguration(actions: [action])
+   
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
     }
     
 }
